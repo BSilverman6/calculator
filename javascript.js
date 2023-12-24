@@ -4,9 +4,21 @@ const oper = document.querySelectorAll(".oper");
 const restart = document.querySelector("#ac");
 const ekwals = document.querySelector("#ekwals");
 const negative = document.querySelector("#plusMin")
+const backspace = document.querySelector("#backspace");
 let screenArray=[""];
 
 
+backspace.addEventListener("click", ()=>{
+    if(screenArray[screenArray.length-1].length === 1 && screenArray.length !== 1){
+        screenArray.splice(screenArray.length-1,1);
+        console.log("Element Removed");
+    }else if(screenArray[screenArray.length-1].length > 1){
+        screenArray[screenArray.length-1] = screenArray[screenArray.length-1].slice(0,screenArray[screenArray.length-1].length-1)
+        console.log("element modified");
+    }else{console.log("nothing to Delete Here")}
+        screenArray[0]="";
+    setScreen()
+});
 
 number.forEach((item)=>{
     item.addEventListener("click", (event)=>{
