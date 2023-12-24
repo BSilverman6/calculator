@@ -14,7 +14,7 @@ backspace.addEventListener("click", ()=>{
         screenArray.splice(screenArray.length-1,1);
     }else if(screenArray[screenArray.length-1].length > 1){
         screenArray[screenArray.length-1] = screenArray[screenArray.length-1].slice(0,screenArray[screenArray.length-1].length-1)
-    }
+    }//else if reset screen.
     setScreen()
 });
 
