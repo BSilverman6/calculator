@@ -9,14 +9,12 @@ let screenArray=[""];
 
 
 backspace.addEventListener("click", ()=>{
+    //
     if(screenArray[screenArray.length-1].length === 1 && screenArray.length !== 1){
         screenArray.splice(screenArray.length-1,1);
-        console.log("Element Removed");
     }else if(screenArray[screenArray.length-1].length > 1){
         screenArray[screenArray.length-1] = screenArray[screenArray.length-1].slice(0,screenArray[screenArray.length-1].length-1)
-        console.log("element modified");
-    }else{console.log("nothing to Delete Here")}
-        screenArray[0]="";
+    }
     setScreen()
 });
 
@@ -41,7 +39,6 @@ number.forEach((item)=>{
 });
 
 negative.addEventListener("click", ()=>{
-    console.log("negative function: " + !isOper(lastItem()));
     if (screenArray.length==1&&lastItem()===""){
         screenArray[0]="-"
     }else if(screenArray.length==1&&lastItem()==="-"){
@@ -56,7 +53,7 @@ negative.addEventListener("click", ()=>{
 
 oper.forEach((item)=>{
     item.addEventListener("click", (event)=>{
-        if (screen.textContent !== ""){
+        if (screenArray[0] !== "" && screenArray[0] !== "-" ){
             if (isOper(lastItem())){
                 screenArray[screenArray.length-1] = event.target.textContent;
             }else{
@@ -77,7 +74,6 @@ ekwals.addEventListener("click", ()=> compute(screenArray));
 
 function compute(mathArray){
     const operands = Math.ceil((mathArray.length)/2)
-    console.log(operands);
     if (operands >= 2){
         mathWork: for (let i=1; i<operands; i++){
             switch (screenArray[1]){
@@ -111,7 +107,6 @@ function compute(mathArray){
 
 function setScreen(){
     screen.textContent=screenArray.toString("").replaceAll(",","");
-    console.log(screenArray);
 }
 
 function isOper(z){
