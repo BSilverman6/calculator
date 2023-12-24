@@ -9,12 +9,15 @@ let screenArray=[""];
 
 
 backspace.addEventListener("click", ()=>{
-    //
+    //if 2+ items in array, and last item is length 1 - delete it
     if(screenArray[screenArray.length-1].length === 1 && screenArray.length !== 1){
         screenArray.splice(screenArray.length-1,1);
+    //if last item is length 2+ - modify it
     }else if(screenArray[screenArray.length-1].length > 1){
         screenArray[screenArray.length-1] = screenArray[screenArray.length-1].slice(0,screenArray[screenArray.length-1].length-1)
-    }//else if reset screen.
+    }else if (screenArray[screenArray.length-1].length === 1 && screenArray.length === 1){
+        screenArray = [""];
+    }//reset screen.
     setScreen()
 });
 
