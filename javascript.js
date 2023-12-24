@@ -71,15 +71,12 @@ function compute(mathArray){
             switch (screenArray[1]){
                 case "+":
                     screenArray.splice(0,3,String(add(screenArray[0],screenArray[2])));
-                    setScreen();
                     break;
                 case "-":
                     screenArray.splice(0,3,String(subtract(screenArray[0],screenArray[2])));
-                    setScreen();
                     break;
                 case "x":
                     screenArray.splice(0,3,String(multiply(screenArray[0],screenArray[2])));
-                    setScreen();
                     break;
                 case "/":
                     if (screenArray[2] == "0"){
@@ -89,11 +86,14 @@ function compute(mathArray){
                         break mathWork;
                     }else{
                     screenArray.splice(0,3,String(divide(screenArray[0],screenArray[2])));
-                    setScreen();
                     }
                     break;
             }
         }
+        if(screen.textContent!=="Well Poopies..."){
+            screenArray[0] = String(Math.round((+screenArray[0])*1000)/1000);
+            setScreen();
+        };
     }
 };
 
