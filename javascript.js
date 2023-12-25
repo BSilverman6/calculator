@@ -77,7 +77,7 @@ oper.forEach((item)=>{
 restart.addEventListener("click", () => {
     screenArray = [""];
     setScreen();
-    screen.textContent = "0";
+    screen.textContent = "___";
 });
 
 ekwals.addEventListener("click", ()=> compute(screenArray));
