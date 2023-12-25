@@ -42,12 +42,19 @@ number.forEach((item)=>{
 });
 
 negative.addEventListener("click", ()=>{
+    //if only one item and blank, make (-)
+    //else if only one item and (-), make (+)
+    //else if last item is NOT an operand 
+    //if last two are operands
+    //else push (-)
     if (screenArray.length==1&&lastItem()===""){
         screenArray[0]="-"
     }else if(screenArray.length==1&&lastItem()==="-"){
         screenArray[0] = ""
     }else if (!isOper(lastItem())){
         screenArray[screenArray.length-1] = ((+screenArray[screenArray.length-1])*(-1)).toString();
+    }else if (lastItem()==="-" && isOper(screenArray[screenArray.length-2])){
+        screenArray.splice(screenArray.length-1,1)
     }else{
         screenArray.push("-");
     }
